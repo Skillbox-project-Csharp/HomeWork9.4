@@ -51,16 +51,21 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Telegram.Bot, Version=16.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Telegram.Bot.16.0.0\lib\net45\Telegram.Bot.dll</HintPath>
-    </Reference>
-    <Reference Include="Telegram.Bot.Extensions.Polling, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Telegram.Bot.Extensions.Polling.0.2.0\lib\netstandard2.0\Telegram.Bot.Extensions.Polling.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TelegramCloudStorage.cs" />
+    <Compile Include="TelegramRequests.cs" />
+    <Compile Include="TelegramTypeSupport\AudioTypeTelegram.cs" />
+    <Compile Include="TelegramTypeSupport\BaseTypeTelegram.cs" />
+    <Compile Include="TelegramTypeSupport\DocumentTypeTelegram.cs" />
+    <Compile Include="TelegramTypeSupport\PhotoSizeTypeTelegram.cs" />
+    <Compile Include="TelegramTypeSupport\PhotoTypeTelegram.cs" />
+    <Compile Include="TelegramTypeSupport\UserTypeTelegram.cs" />
+    <Compile Include="TelegramTypeSupport\VideoTypeTelegram.cs" />
+    <Compile Include="TelegramTypeSupport\VoiceTypeTelegram.cs" />
+    <Compile Include="TelegramTypeHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
