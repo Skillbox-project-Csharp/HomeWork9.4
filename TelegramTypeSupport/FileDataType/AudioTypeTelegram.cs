@@ -12,7 +12,7 @@ namespace HomeWork9._4.TelegramSupport
     class AudioTypeTelegram : BaseTypeTelegram
     {
         #region Поля
-        public const  FileType TypeTelegram = FileType.audio;
+        private const  FileType TypeTelegram = FileType.audio;
         string _file_id;
         string _file_unique_id;
         int _duration;

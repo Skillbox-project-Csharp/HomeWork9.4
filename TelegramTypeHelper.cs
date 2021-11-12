@@ -1,4 +1,5 @@
 ﻿using HomeWork9._4.TelegramSupport;
+using HomeWork9._4.TelegramTypeSupport;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,15 @@ namespace HomeWork9._4
             FileType.video,
             FileType.voice,
         };
-
+        public static BotCommandTelegram[] BotCommands = new BotCommandTelegram[]
+        {
+            new BotCommandTelegram(@"getlistaudio", "Показать список аудиофайлов"),
+            new BotCommandTelegram(@"getlistdocument", "Показать список документов"),
+            new BotCommandTelegram(@"getlistphoto", "Показать список фото"),
+            new BotCommandTelegram(@"getlistvideo", "Показать список видео"),
+            new BotCommandTelegram(@"getlistvoice", "Показать список голосовых сообщений")
+        };
+       
         public static BaseTypeTelegram CheckFileType(JToken msg)
         {
             foreach (var typeFile in TelegramTypeHelper.FileTypes)
@@ -57,6 +66,16 @@ namespace HomeWork9._4
                     return mime_type[1];
             }
             return null;
+
+        }
+        public static bool CheckCommand(JToken msg)
+        {
+            var entities = msg?["message"]?["entities"]?.ToArray();
+            if(entities != null)
+            foreach (var entity in entities)
+                if(entity?["type"]?.ToString() == "bot_command")
+                    return true;
+            return false;
 
         }
     }

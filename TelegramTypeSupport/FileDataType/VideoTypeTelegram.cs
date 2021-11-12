@@ -1,15 +1,18 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static HomeWork9._4.TelegramTypeHelper;
 
 namespace HomeWork9._4.TelegramSupport
 {
     class VideoTypeTelegram : BaseTypeTelegram
     {
         #region Поля
+        private const FileType TypeTelegram = FileType.video;
         string _file_id;
         string _file_unique_id;
         int _width;
@@ -116,6 +119,21 @@ namespace HomeWork9._4.TelegramSupport
                 MimeType,
                 FileSize);
             Thumb?.PrintAll();
+        }
+
+        public override void Save(TelegramCloudStorage botInfo, UserTypeTelegram user)
+        {
+
+            var linkResult = JObject.Parse(TelegramRequests.GetLinkFileDownload(botInfo, FileId))["result"];
+            var download_url = $@"https://api.telegram.org/file/bot{botInfo.BotToken}/{linkResult["file_path"]}";
+
+            var savePath = $@"{Directory.GetCurrentDirectory()}\users\{user.Id}\{TypeTelegram}\";
+            Directory.CreateDirectory(savePath);
+
+            var mime_type = TelegramTypeHelper.CheckMimeType(MimeType);
+            savePath += FileName != null ? FileName : FileId;
+            savePath += mime_type != null ? $".{mime_type}" : null;
+            botInfo.BotWebClient.DownloadFile(download_url, savePath);
         }
     }
 

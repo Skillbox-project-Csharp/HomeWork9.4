@@ -33,17 +33,39 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.5.0.1\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.5.0.2\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -57,14 +79,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TelegramCloudStorage.cs" />
     <Compile Include="TelegramRequests.cs" />
-    <Compile Include="TelegramTypeSupport\AudioTypeTelegram.cs" />
-    <Compile Include="TelegramTypeSupport\BaseTypeTelegram.cs" />
-    <Compile Include="TelegramTypeSupport\DocumentTypeTelegram.cs" />
-    <Compile Include="TelegramTypeSupport\PhotoSizeTypeTelegram.cs" />
-    <Compile Include="TelegramTypeSupport\PhotoTypeTelegram.cs" />
+    <Compile Include="TelegramTypeSupport\FileDataType\AudioTypeTelegram.cs" />
+    <Compile Include="TelegramTypeSupport\FileDataType\BaseTypeTelegram.cs" />
+    <Compile Include="TelegramTypeSupport\BotCommandTelegram.cs" />
+    <Compile Include="TelegramTypeSupport\FileDataType\DocumentTypeTelegram.cs" />
+    <Compile Include="TelegramTypeSupport\FileDataType\PhotoSizeTypeTelegram.cs" />
+    <Compile Include="TelegramTypeSupport\FileDataType\PhotoTypeTelegram.cs" />
+    <Compile Include="TelegramTypeSupport\KeyboardType\InlineKeyboardButton.cs" />
+    <Compile Include="TelegramTypeSupport\KeyboardType\InlineKeyboardMarkup.cs" />
+    <Compile Include="TelegramTypeSupport\KeyboardType\KeyboardButton.cs" />
+    <Compile Include="TelegramTypeSupport\KeyboardType\ReplyKeyboardMarkup.cs" />
     <Compile Include="TelegramTypeSupport\UserTypeTelegram.cs" />
-    <Compile Include="TelegramTypeSupport\VideoTypeTelegram.cs" />
-    <Compile Include="TelegramTypeSupport\VoiceTypeTelegram.cs" />
+    <Compile Include="TelegramTypeSupport\FileDataType\VideoTypeTelegram.cs" />
+    <Compile Include="TelegramTypeSupport\FileDataType\VoiceTypeTelegram.cs" />
     <Compile Include="TelegramTypeHelper.cs" />
   </ItemGroup>
   <ItemGroup>

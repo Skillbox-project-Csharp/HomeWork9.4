@@ -1,15 +1,18 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static HomeWork9._4.TelegramTypeHelper;
 
 namespace HomeWork9._4.TelegramSupport
 {
     class PhotoSizeTypeTelegram : BaseTypeTelegram
     {
         #region Поля
+        private const FileType TypeTelegram = FileType.photo;
         string _file_id;
         string _file_unique_id;
         int _width;
@@ -58,6 +61,21 @@ namespace HomeWork9._4.TelegramSupport
                 Width,
                 Height,
                 FileSize);
+        }
+
+        public override void Save(TelegramCloudStorage botInfo, UserTypeTelegram user)
+        {
+
+            var linkResult = JObject.Parse(TelegramRequests.GetLinkFileDownload(botInfo, FileId))["result"];
+            var download_url = $@"https://api.telegram.org/file/bot{botInfo.BotToken}/{linkResult["file_path"]}";
+
+            var savePath = $@"{Directory.GetCurrentDirectory()}\users\{user.Id}\{TypeTelegram}\";
+            Directory.CreateDirectory(savePath);
+
+            
+            savePath += FileUniqueId;
+            savePath += $".png";
+            botInfo.BotWebClient.DownloadFile(download_url, savePath);
         }
     }
 }

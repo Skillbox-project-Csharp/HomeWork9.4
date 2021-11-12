@@ -35,5 +35,12 @@ namespace HomeWork9._4.TelegramSupport
             foreach (var photo in PhotoArray)
                 photo.PrintAll();
         }
+
+        public override void Save(TelegramCloudStorage botInfo, UserTypeTelegram user)
+        {
+
+            foreach (var photo in PhotoArray)
+                photo.Save(botInfo, user);
+        }
     }
 }
